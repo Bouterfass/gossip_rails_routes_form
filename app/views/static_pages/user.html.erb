@@ -1,0 +1,26 @@
+<% user = User.find_by(id: params['id'])%>
+
+
+
+
+<div class="user_identity">
+
+    <div class="user_presentation">
+
+    <h2> <%= @user.first_name %> <%= user.last_name %>, <%= user.age %> ans </h2>
+    </div>
+
+
+    <div class="user_presentation">
+        <h5> <em><%= @user.description %> <em> </h5>
+    </div>
+    
+    <div class="user_presentation">
+        <h5> <%= @city.name %> </h5>
+    </div>
+
+    <div class="user_presentation">
+        <h4> <%= @user.email %>  </h4>
+    </div>
+
+</div>
