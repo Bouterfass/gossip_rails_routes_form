@@ -1,0 +1,45 @@
+<div class="container-fluid" >
+    <div class="row background-row pt-5 pb-5">
+        <div class="container">
+
+            <div class="row">
+                <h1 class="display-2 mx-auto">The Gossip Project</h1>
+            </div>
+
+            <div class="row">
+                <%= link_to new_gossip_rails_routes_form_path, :class=>"btn btn-outline-primary btn-lg mx-auto mt-5" do %>
+                    <strong>Créer au gossip</strong>
+                <% end %>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row background-row pt-5">
+        <div class="container">
+            <% @array.each do |ag| %>
+                <div class="row pb-5">
+                    <% ag.each do |g| %>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= g.title %> <small><em>crée le <%= g.created_at.to_s.split(' ')[0] %></em></small></h5>
+                                    <p class="card-text pb-2">
+                                        écrit par  
+                                        <%= link_to user_path(g.user.id) do %>
+                                            <strong><%= g.user.first_name %> <%= g.user.last_name %> </strong>   
+                                        <% end %>
+                                    </p>
+                                    <%= link_to gossip_rails_routes_form_path(g.id), :class=>"btn btn-primary" do %>
+                                        <strong>Accéder au gossip</strong>
+                                    <% end %>
+                          
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

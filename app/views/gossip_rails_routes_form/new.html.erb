@@ -1,0 +1,45 @@
+
+
+  <% if @gossip_new.errors.any? %>
+<div class="alert alert-primary" role="alert">
+    <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+    <ul>
+      <% @gossip_new.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+</div>
+  <% end %>
+
+
+<div class="container mx-auto mt-5 pt-5 w-25">
+
+ <%= form_tag url_for(action: "create") do %>
+    
+    <div class="form-group">
+      <%= label_tag 'Titre' %>
+       <div class="col-md-8">
+      <%= text_field_tag :title %>
+       </div>
+    </div>
+
+      <div class="form-group">
+        <%= label_tag 'Gossip' %>
+       <div class="col-md-8">
+        <%= text_area_tag :body %>
+        </div>
+  
+      </div>
+
+    <div class="form-group">
+      <%= label_tag 'Auteur' %>
+     <div class="col-md-8">
+      <%= text_field_tag :author %>
+      </div>
+      </div>
+
+
+      <%= submit_tag "Enregistrer", class: 'btn btn-default btn-lg btn-submit'%>
+
+    <% end %>
+</div>
