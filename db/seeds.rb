@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+User.destroy_all
+Gossip.destroy_all
+City.destroy_all
+Comment.destroy_all
+
+Tag.destroy_all
+Linktag.destroy_all
+
 require 'faker'
 
 array_user = []
@@ -35,4 +44,8 @@ end
 
 10.times do
   PrivateMessage.create(content: Faker::TvShows::HowIMetYourMother.quote, sender: array_user.sample, recipient: array_user.sample)
+end
+
+20.times do
+  Comment.create(content: Faker::JapaneseMedia::OnePiece.quote, gossip: array_gossip.sample, user: array_user.sample)
 end

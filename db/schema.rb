@@ -25,11 +25,9 @@ ActiveRecord::Schema.define(version: 2020_10_22_210357) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.bigint "gossip_id"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["gossip_id"], name: "index_comments_on_gossip_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "gossips", force: :cascade do |t|
