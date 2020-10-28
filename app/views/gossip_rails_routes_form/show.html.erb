@@ -6,17 +6,32 @@
     <div class="row background-row pt-5 pb-5">
         <div class="container">
             <div class="row">
-                <h1 class=" mx-auto">Voici le gossip de <%= @user.first_name %> <%= @user.last_name %></h1>
+                <h1 class=" mx-auto">
+                <%= link_to user_path(@user.id) do %>
+                    <%= @user.first_name %> 
+                    <%= @user.last_name %> 
+                <% end %>
+                </h1>
+            </div>
+            <div class="row">
+                <p class="mx-auto">de <%= link_to city_path(@user.city_id) do %> <em><%= @user.city.name %></em> <% end %></p>
+            </div>
+    
+            <div class="row">
+                <p class="mx-auto">
+                    <%= @gossip.content %>
+                </p>
+            </div>
+
+            <div class="row">
+                <%= link_to edit_gossip_rails_routes_form_path(@gossip.id), :class=>"btn btn-outline-primary btn-lg mx-auto mt-5" do %>
+                    <strong>Modifier le gossip</strong>
+                <% end %>
             </div>
         </div>
     </div>
+</div>
+     
 
-
-    <div class="container d-flex justify-content-center">
-        <p>
-            <%= @gossip_content.content %>
-        </p>
-    </div>
-</div
 
 

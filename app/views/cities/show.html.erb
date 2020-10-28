@@ -1,0 +1,11 @@
+
+<h1> Voici tout les gossips écrit par les utilisateurs <%= @city.name %> </h1>
+<ul>
+    <% @all_gossips.each do |gossip| %>
+        <li> <%= gossip.content %> 
+            <em> de <strong> <%= gossip.user.first_name %>  <%= gossip.user.last_name %></strong> 
+            le <strong><%= gossip.user.created_at.to_s.split(' ')[0].split('-').reverse.join('/') %></strong> 
+            à <strong><%= gossip.user.created_at.to_s.split(' ')[1] %></strong></em>
+        </li>
+    <% end %>
+</ul>
