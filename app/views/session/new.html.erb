@@ -1,0 +1,26 @@
+<h1> Tu es bien sur la page d'authentification </h1>
+
+
+<div class="container mx-auto mt-5 pt-5 w-25">
+
+ <%= form_tag url_for(action: "create") do %>
+   
+        <div class="form-group">
+        <%= label_tag 'Email' %>
+        <div class="col-md-8">
+        <%= text_field_tag :email %>
+        </div>
+      </div>
+
+
+    <div class="form-group">
+      <%= label_tag 'Mot de passe' %>
+     <div class="col-md-8">
+      <%= text_field_tag :password %>
+      </div>
+      </div>
+
+      <%= submit_tag "Enregistrer", class: 'btn btn-default btn-lg btn-submit'%>
+
+    <% end %>
+</div>

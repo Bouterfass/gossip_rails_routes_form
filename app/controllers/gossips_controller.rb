@@ -28,7 +28,7 @@ class GossipsController < ApplicationController
     if @gossip_new.save
       redirect_to '/gossips'
     else
-      render new_gossip_rails_routes_form_path
+      render new_gossip_path
     end
     
   end
@@ -47,7 +47,7 @@ class GossipsController < ApplicationController
     if @gossip_update.update(params_to_update)
       redirect_to '/gossips'
     else
-      render new_gossip_rails_routes_form_path
+      render new_gossip_path
     end
 
  

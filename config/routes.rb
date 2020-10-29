@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :user, only: :show
+  resources :user
+
+  resources :session
 
   resources :cities, only: :show
 

@@ -1,0 +1,76 @@
+
+
+<h1>Creation d'un nouvel Utilisateur </h1>
+
+<div class="container mx-auto mt-5 pt-5 w-25">
+
+ <%= form_tag url_for(action: "create") do %>
+    
+    <div class="form-group">
+      <%= label_tag 'Nom' %>
+       <div class="col-md-8">
+      <%= text_field_tag :last_name %>
+       </div>
+    </div>
+
+      <div class="form-group">
+        <%= label_tag 'Prenom' %>
+       <div class="col-md-8">
+        <%= text_field_tag :first_name %>
+        </div>
+  
+      </div>
+
+
+        <div class="form-group">
+        <%= label_tag 'Email' %>
+        <div class="col-md-8">
+        <%= text_field_tag :email %>
+        </div>
+      </div>
+
+
+    <div class="form-group">
+      <%= label_tag 'Mot de passe' %>
+     <div class="col-md-8">
+      <%= text_field_tag :password %>
+      </div>
+      </div>
+
+
+
+    <div class="form-group">
+      <%= label_tag 'Age' %>
+     <div class="col-md-8">
+      <%= text_field_tag :age %>
+      </div>
+      </div>
+
+
+    <div class="form-group">
+      <%= label_tag 'Ville' %>
+     <div class="col-md-8">
+      <%= text_field_tag :city %>
+      </div>
+      </div>
+
+        <div class="form-group">
+      <%= label_tag 'Code postal' %>
+     <div class="col-md-8">
+      <%= text_field_tag :zip_code %>
+      </div>
+      </div>
+
+
+    <div class="form-group">
+      <%= label_tag 'Description' %>
+     <div class="col-md-8">
+      <%= text_area_tag :description %>
+      </div>
+      </div>
+
+
+      <%= submit_tag "Enregistrer", class: 'btn btn-default btn-lg btn-submit'%>
+
+    <% end %>
+</div>
