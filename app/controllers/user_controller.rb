@@ -16,7 +16,7 @@ class UserController < ApplicationController
         end
 
         if @user.save
-            redirect_to "/gossips"
+            redirect_to "/session/new"
         else 
             render new_user_path
         end

@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
     
- 
+    include SessionHelper
+
+    before_action :authenticate_user
 
     def create
         @gossip = Gossip.find(params[:gossip_id])
@@ -12,5 +14,11 @@ class CommentsController < ApplicationController
 
    def comment_params
     params.require(:comment).permit(:content, :gossip_id)
+   end
+
+   def authenticate_user
+        unless current_user
+            redirect_to 'session/new'
+        end
    end
 end

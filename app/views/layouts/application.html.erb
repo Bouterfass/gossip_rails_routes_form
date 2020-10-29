@@ -27,7 +27,7 @@
    <% end %>
      <% if session[:user_id]%>
       <li class="nav-item">
-        <a class="nav-link" href="#">Bienvenue <%= User.find(session[:user_id]).first_name.capitalize %></a>
+        <a class="nav-link" href="#">Bienvenue <%= current_user.first_name.capitalize %></a>
       </li> 
       <%= link_to new_session_path, method: "delete", class: "nav-link" do %> 
       Se déconnecter
