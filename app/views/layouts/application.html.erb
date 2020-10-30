@@ -13,7 +13,7 @@
   <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="/gossips">The Gossip Project <%= session[:user_id] %></a>
+  <a class="navbar-brand" href="/gossips">The Gossip Project </a>
   
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
@@ -27,7 +27,7 @@
    <% end %>
      <% if session[:user_id]%>
       <li class="nav-item">
-        <a class="nav-link" href="#">Bonjour <%= current_user.first_name.capitalize %></a>
+        <a class="nav-link" href="#">Bonjour</a>
       </li> 
       <%= link_to new_session_path, method: "delete", class: "nav-link" do %> 
       Se déconnecter
