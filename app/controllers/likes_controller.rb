@@ -1,8 +1,9 @@
 class LikesController < ApplicationController
 
     include SessionHelper
-    before_action :find_like, only: [:destroy]
+   
     before_action :find_gossip
+    before_action :find_like, only: [:destroy]
 
     def create
         if already_liked?

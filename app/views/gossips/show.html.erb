@@ -33,19 +33,21 @@
             <% end %>              
 
 
-            <div class="row>
-                <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
-                <p><%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-                <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
-                <% if pre_like %>
-                    <%= button_to 'Unlike', gossip_like_path(@gossip, pre_like), method: :delete %>
-                <% else %>
-                    <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
-                <% end %>
-                
-            </div>
+            <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
+            
+            <% if pre_like %>
+            <div class="row ">
+            <p><%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+              <%= button_to 'Unlike', gossip_like_path(@gossip, pre_like), method: :delete %>
+            <% else %>
+            <p><%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+              <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
+              </div>
+            <% end %>
+         
 
             <h3>Ajouter un commentaire</h3>
+            <%= pre_like %>
             <%= form_for([@gossip, @gossip.comments.build]) do |f| %>
                 <%= f.text_field :content %>
                 <%= f.submit "confirmer" %>
