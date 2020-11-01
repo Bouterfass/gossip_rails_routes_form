@@ -1,20 +1,16 @@
-<div class="container-fluid" >
-    <div class="row background-row pt-5 pb-5">
-        <div class="container">
-
-            <div class="row">
-                <h1 class="display-2 mx-auto">The Gossip Project</h1>
-            </div>
-
-            <div class="row">
-                <%= link_to new_gossip_path, :class=>"btn btn-outline-primary btn-lg mx-auto mt-5" do %>
-                    <strong>Créer un gossip</strong>
-                <% end %>
-            </div>
-
-        </div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  
+    <div class="row">
+        <%= link_to new_gossip_path, :class=>"btn btn-outline-primary btn-lg mx-auto mt-5" do %>
+            <strong>Créer un gossip</strong>
+        <% end %>
     </div>
-
+    
+    </div>
+</div>
     <div class="row background-row pt-5">
         <div class="container">
             <% @array.each do |ag| %>
@@ -43,7 +39,7 @@
                                     <%= link_to gossip_path(g.id), :class=>"btn btn-primary" do %>
                                         <strong>Accéder au gossip</strong>
                                     <% end %>
-                          
+                                    <p><%= g.likes.count %> <%= (g.likes.count) == 1 ? 'Like' : 'Likes'%></p>
                                 </div>
                             </div>
                         </div>

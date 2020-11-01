@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :gossips do
     resources :comments
+    resources :likes
   end
 
   resources :user
@@ -10,5 +11,7 @@ Rails.application.routes.draw do
   resources :session
 
   resources :cities, only: :show
+
+
 
 end

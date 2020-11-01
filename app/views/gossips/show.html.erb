@@ -26,11 +26,24 @@
             <% if current_user == @user %>
             <div class="row">
                 <p class="mx-auto">
-             <%= link_to edit_gossip_path(@gossip.id), :class=>"btn btn-outline-primary btn-lg mx-auto mb-5 mt-5" do %>
-                    <strong>Modifier le gossip</strong>
-                <% end %>
+                <%= link_to edit_gossip_path(@gossip.id), :class=>"btn btn-outline-primary btn-lg mx-auto mb-5 mt-5" do %>
+                        <strong>Modifier le gossip</strong>
+                        <% end %>
             </div>
-<% end %>              
+            <% end %>              
+
+
+            <div class="row>
+                <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
+                <p><%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
+                <% if pre_like %>
+                    <%= button_to 'Unlike', gossip_like_path(@gossip, pre_like), method: :delete %>
+                <% else %>
+                    <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
+                <% end %>
+                
+            </div>
 
             <h3>Ajouter un commentaire</h3>
             <%= form_for([@gossip, @gossip.comments.build]) do |f| %>
