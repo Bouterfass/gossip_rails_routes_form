@@ -14,7 +14,7 @@ Comment.destroy_all
 
 Tag.destroy_all
 Linktag.destroy_all
-=begin
+
 require 'faker'
 
 array_user = []
@@ -27,8 +27,7 @@ array_tag = []
 end
 
 20.times do
-
-  array_user << User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name, description: Faker::Movies::Hobbit.quote, email: Faker::Internet.email, age: Faker::Number.within(range: 18..100), city: array_city.sample, password: "a")
+  array_user << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Movies::Hobbit.quote, email: Faker::Internet.email, age: Faker::Number.within(range: 18..100), city: array_city.sample, password: "ayoucef")
 end
 
 20.times do
@@ -46,7 +45,7 @@ end
 10.times do
   PrivateMessage.create(content: Faker::TvShows::HowIMetYourMother.quote, sender: array_user.sample, recipient: array_user.sample)
 end
-
+=begin
 20.times do
   Comment.create(content: Faker::JapaneseMedia::OnePiece.quote, gossip: array_gossip.sample, user: array_user.sample)
 end
